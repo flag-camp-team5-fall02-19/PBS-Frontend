@@ -1,0 +1,29 @@
+.logout {
+    float: right;
+    padding-top: 13px;
+    padding-right: 13px;
+}
+
+.sitter-login-topbar {
+    float: left;
+    padding-top: 13px;
+    padding-left: 203px;
+}
+
+.search-sitter-topbar {
+    float: left;
+    padding-top: 13px;
+    padding-left: 40px;
+}
+
+.view-request-topbar {
+    float: left;
+    padding-top: 13px;
+    padding-left: 40px;
+}
+
+.view-order-topbar {
+    float: left;
+    padding-top: 13px;
+    padding-left: 40px;
+}
