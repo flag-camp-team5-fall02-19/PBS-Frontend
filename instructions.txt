@@ -1,0 +1,9 @@
+create-react-app pbs-client
+
+cd pbs-client
+
+npm install -S antd
+
+npm install -S md5
+
+npm install react-router-dom
