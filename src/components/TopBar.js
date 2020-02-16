@@ -16,10 +16,10 @@ class TopBar extends Component {
                 }
 
                 {
-
-                        <a className="search-sitter-topbar"  >
+                    this.props.isOwnerLoggedIn ?
+                        <a className="search-sitter-topbar" >
                             <Icon type="Search a Sitter"/>{' '}Search a Sitter
-                        </a>
+                        </a> : null
                 }
 
                 {
