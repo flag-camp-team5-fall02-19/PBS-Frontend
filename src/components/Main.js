@@ -10,10 +10,14 @@ import TopBar from "./TopBar";
 class Main extends Component {
 
     getOwnerLogin = () => {
-        console.log(this.props.isSitterLoginRequest);
+        //console.log(this.props.isSitterLoginRequest);
         if (this.props.isSitterLoginRequest) {
             return (
-                <Redirect to="/sitterlogin"/>
+                    <Redirect to="/sitterlogin" />
+            )
+        } else if (this.props.isOwnerLoginRequest) {
+            return (
+                <OwnerLogin handleLoginSucceed={this.props.handleLoginSucceed}/>
             )
         } else {
             return this.props.isLoggedIn ?
@@ -28,7 +32,11 @@ class Main extends Component {
         console.log(this.props.isSitterLoginRequest);
         if (this.props.isSitterLoginRequest) {
             return (
-                <Redirect to="/sitterlogin"/>
+                <Redirect to="/sitterlogin" />
+            )
+        } else if (this.props.isOwnerLoginRequest) {
+            return (
+                <Redirect to="/ownerlogin" />
             )
         } else {
             return this.props.isLoggedIn ?
@@ -42,7 +50,11 @@ class Main extends Component {
         console.log(this.props.isSitterLoginRequest);
         if (this.props.isSitterLoginRequest) {
             return (
-                <Redirect to="/sitterlogin"/>
+                <SitterLogin handleLoginSucceed={this.props.handleLoginSucceed}/>
+            )
+        } else if (this.props.isOwnerLoginRequest) {
+            return (
+                <Redirect to="/ownerlogin" />
             )
         } else {
             return this.props.isLoggedIn ?
@@ -57,6 +69,10 @@ class Main extends Component {
         if (this.props.isSitterLoginRequest) {
             return (
                 <Redirect to="/sitterlogin"/>
+            )
+        } else if (this.props.isOwnerLoginRequest) {
+            return (
+                <Redirect to="/ownerlogin" />
             )
         } else {
             return this.props.isLoggedIn ?
@@ -77,6 +93,7 @@ class Main extends Component {
                     <Route path="/sitterdashboard" render={this.getSitterDashBoard }/>
 
                     <Route render={ this.getOwnerLogin}/>
+
                 </Switch>
             </div>
         );

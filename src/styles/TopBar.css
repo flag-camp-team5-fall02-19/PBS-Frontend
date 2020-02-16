@@ -1,9 +1,3 @@
-.logout {
-    float: right;
-    padding-top: 13px;
-    padding-right: 13px;
-}
-
 .sitter-login-topbar {
     float: left;
     padding-top: 13px;
@@ -26,4 +20,16 @@
     float: left;
     padding-top: 13px;
     padding-left: 40px;
+}
+
+.login-owner-topbar {
+    float: left;
+    padding-top: 13px;
+    padding-left: 243px;
+}
+
+.logout {
+    float: right;
+    padding-top: 13px;
+    padding-right: 13px;
 }

@@ -37,6 +37,12 @@ class TopBar extends Component {
                 }
 
                 {
+                        <a className="login-owner-topbar" onClick={this.props.handleOwnerLogin} >
+                            <Icon type="Sign In as Owner"/>{' '}Sign In as Owner
+                        </a>
+                }
+
+                {
                     this.props.isLoggedIn ?
                         <a className="logout" onClick={this.props.handleLogout} >
                             <Icon type="logout"/>{' '}Logout

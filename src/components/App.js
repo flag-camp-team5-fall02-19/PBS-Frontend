@@ -15,12 +15,15 @@ class App extends Component{
   state = {
       isLoggedIn: Boolean(localStorage.getItem(TOKEN_KEY)),
       sitterLoginRequest: false,
+      ownerLoginRequest: false,
   };
 
   handleLoginSucceed = (token) => {
     console.log('token --- ', token);
     localStorage.setItem(TOKEN_KEY, token);
-    this.setState({isLoggedIn: true});
+    this.setState({ isLoggedIn: true});
+    this.setState({ sitterLoginRequest: false});
+    this.setState({ ownerLoginRequest: false});
   };
 
   handleLogout = () => {
@@ -28,12 +31,21 @@ class App extends Component{
     localStorage.removeItem(TOKEN_KEY);
     this.setState({ isLoggedIn: false });
     this.setState({ sitterLoginRequest: false});
+    this.setState({ ownerLoginRequest: false});
   };
 
   handleSitterLogin = () => {
-      console.log("after clicked become a sitter");
-      this.setState({ isLoggedIn: false });
-      this.setState({ sitterLoginRequest: true});
+        console.log("after clicked become a sitter");
+        this.setState({ isLoggedIn: false });
+        this.setState({ sitterLoginRequest: true});
+        this.setState({ ownerLoginRequest: false});
+  };
+
+  handleOwnerLogin = () => {
+        console.log("after clicked become a owner");
+        this.setState({ isLoggedIn: false });
+        this.setState({ ownerLoginRequest: true});
+        this.setState({ sitterLoginRequest: false});
   };
 
   render() {
@@ -41,6 +53,7 @@ class App extends Component{
         <div className="App">
 
           <TopBar handleSitterLogin={this.handleSitterLogin}
+                  handleOwnerLogin={this.handleOwnerLogin}
                   handleLogout={this.handleLogout}
                   isLoggedIn={this.state.isLoggedIn}
           />
@@ -49,6 +62,7 @@ class App extends Component{
               handleLoginSucceed={this.handleLoginSucceed}
               isLoggedIn={this.state.isLoggedIn}
               isSitterLoginRequest={this.state.sitterLoginRequest}
+              isOwnerLoginRequest={this.state.ownerLoginRequest}
           />
 
           <BottomNavBar
