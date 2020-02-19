@@ -18,6 +18,7 @@ class App extends Component{
       ownerLoginRequest: false,
       isSitterLoggedIn: Boolean(localStorage.getItem(SITTER)),
       isOwnerLoggedIn: Boolean(localStorage.getItem(OWNER)),
+      searchSitterRequest: false,
   };
 
   handleLoginSucceed = (token) => {
@@ -41,6 +42,7 @@ class App extends Component{
     localStorage.removeItem(SITTER);
     localStorage.removeItem(OWNER);
     this.setState({ isLoggedIn: false });
+    this.setState({ searchSitterRequest: false});
     this.setState({ isSitterLoggedIn: false});
     this.setState({ isOwnerLoggedIn: false});
     this.setState({ sitterLoginRequest: false});
@@ -50,6 +52,7 @@ class App extends Component{
   handleSitterLogin = () => {
         console.log("after clicked become a sitter");
         this.setState({ isLoggedIn: false });
+        this.setState({ searchSitterRequest: false});
         this.setState({ isSitterLoggedIn: false});
         this.setState({ isOwnerLoggedIn: false});
         this.setState({ sitterLoginRequest: true});
@@ -59,10 +62,21 @@ class App extends Component{
   handleOwnerLogin = () => {
         console.log("after clicked become a owner");
         this.setState({ isLoggedIn: false });
+        this.setState({ searchSitterRequest: false});
         this.setState({ isSitterLoggedIn: false});
         this.setState({ isOwnerLoggedIn: false});
         this.setState({ sitterLoginRequest: false});
         this.setState({ ownerLoginRequest: true});
+  };
+
+  handleSearchSitter = () => {
+        console.log("after clicked search sitter");
+        this.setState({ searchSitterRequest: true});
+  };
+
+  handleSearchSitterSucceed = () => {
+        console.log("after clicked search button");
+        this.setState({ searchSitterRequest: false});
   };
 
   render() {
@@ -71,14 +85,20 @@ class App extends Component{
 
           <TopBar handleSitterLogin={this.handleSitterLogin}
                   handleOwnerLogin={this.handleOwnerLogin}
+                  handleSearchSitter={this.handleSearchSitter}
                   handleLogout={this.handleLogout}
                   isLoggedIn={this.state.isLoggedIn}
                   isOwnerLoggedIn={this.state.isOwnerLoggedIn}
+                  //isSitterLoggedIn={this.state.isSitterLoggedIn}
           />
 
           <Main
               handleLoginSucceed={this.handleLoginSucceed}
+              hanldeSearchSitterSucceed={this.handleLoginSucceed}
               isLoggedIn={this.state.isLoggedIn}
+              isSearchRequest={this.state.searchSitterRequest}
+              isOwnerLoggedIn={this.state.isOwnerLoggedIn}
+              isSitterLoggedIn={this.state.isSitterLoggedIn}
               isSitterLoginRequest={this.state.sitterLoginRequest}
               isOwnerLoginRequest={this.state.ownerLoginRequest}
           />

@@ -6,8 +6,8 @@
 @import './SitterLogin.css';
 @import './OwnerDashBoard.css';
 @import './SitterDashBoard.css';
-
-
+@import './SearchSitter.css';
+@import './Sitter.css';
 
 .App {
   text-align: center;

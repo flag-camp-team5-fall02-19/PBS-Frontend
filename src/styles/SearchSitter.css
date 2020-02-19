@@ -1,0 +1,40 @@
+.search-sitter-form{
+    width: 400px;
+    height: 250px;
+    margin:0 auto;
+}
+
+.zipcode {
+    float: left;
+    width:100px;
+    height: 30px;
+    margin:15px;
+}
+
+.radius {
+    float: left;
+    width:100px;
+    height: 30px;
+    margin:15px;
+}
+
+.unit {
+    float: left;
+    width:100px;
+    height: 25px;
+    margin:15px;
+}
+
+.search-sitter-button {
+    width:400px;
+}
+
+.display-sitter-button {
+    width:200px;
+}
+
+.main-tabs {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}

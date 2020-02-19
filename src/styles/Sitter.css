@@ -1,0 +1,26 @@
+.sitter{
+    display: block;
+    min-height: 1px;
+    width: 50%;
+    border: 1px solid #ddd;
+    overflow: auto;
+    float: left;
+}
+
+ul {
+    text-align: left;
+}
+
+.sitter-thumbnail{
+    float: left;
+    background-color: rgba(0, 0, 0, 0.8);
+    max-height: 240px;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+    width: 40%;
+    color: white;
+    padding: 2px;
+    margin-right: 10px;
+    font-size: 90%;
+}
