@@ -19,6 +19,7 @@ class App extends Component{
       isSitterLoggedIn: Boolean(localStorage.getItem(SITTER)),
       isOwnerLoggedIn: Boolean(localStorage.getItem(OWNER)),
       searchSitterRequest: false,
+      viewDashBoardRequest: false,
   };
 
   handleLoginSucceed = (token) => {
@@ -47,6 +48,7 @@ class App extends Component{
     this.setState({ isOwnerLoggedIn: false});
     this.setState({ sitterLoginRequest: false});
     this.setState({ ownerLoginRequest: false});
+    this.setState({ viewDashBoardRequest: false});
   };
 
   handleSitterLogin = () => {
@@ -57,6 +59,7 @@ class App extends Component{
         this.setState({ isOwnerLoggedIn: false});
         this.setState({ sitterLoginRequest: true});
         this.setState({ ownerLoginRequest: false});
+        this.setState({ viewDashBoardRequest: false});
   };
 
   handleOwnerLogin = () => {
@@ -67,6 +70,7 @@ class App extends Component{
         this.setState({ isOwnerLoggedIn: false});
         this.setState({ sitterLoginRequest: false});
         this.setState({ ownerLoginRequest: true});
+        this.setState({ viewDashBoardRequest: false});
   };
 
   handleSearchSitter = () => {
@@ -79,6 +83,12 @@ class App extends Component{
         this.setState({ searchSitterRequest: false});
   };
 
+  handleViewDashBoard = () => {
+        console.log("after clicked view my requests & orders");
+        this.setState({ viewDashBoardRequest: true});
+        this.setState({ searchSitterRequest: false});
+  };
+
   render() {
     return (
         <div className="App">
@@ -88,7 +98,8 @@ class App extends Component{
                   handleSearchSitter={this.handleSearchSitter}
                   handleLogout={this.handleLogout}
                   isLoggedIn={this.state.isLoggedIn}
-                  isOwnerLoggedIn={this.state.isOwnerLoggedIn}
+                  handleViewDashBoard={this.handleViewDashBoard}
+                  //isOwnerLoggedIn={this.state.isOwnerLoggedIn}
                   //isSitterLoggedIn={this.state.isSitterLoggedIn}
           />
 
@@ -101,6 +112,7 @@ class App extends Component{
               isSitterLoggedIn={this.state.isSitterLoggedIn}
               isSitterLoginRequest={this.state.sitterLoginRequest}
               isOwnerLoginRequest={this.state.ownerLoginRequest}
+              isViewDashBoardRequest={this.state.viewDashBoardRequest}
           />
 
           <BottomNavBar

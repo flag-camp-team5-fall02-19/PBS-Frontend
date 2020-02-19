@@ -24,17 +24,17 @@ class TopBar extends Component {
 
                 {
                     this.props.isLoggedIn ?
-                        <a className="view-request-topbar"  >
-                            <Icon type="View my Requests"/>{' '}View my Requests
+                        <a className="view-request-and-order-topbar"  onClick={this.props.handleViewDashBoard}>
+                            <Icon type="View my Requests & Orders"/>{' '}View my Requests & Orders
                         </a> : null
                 }
 
-                {
-                    this.props.isLoggedIn ?
-                        <a className="view-order-topbar"  >
-                            <Icon type="View my Orders"/>{' '}View my Orders
-                        </a> : null
-                }
+                {/*{*/}
+                {/*    this.props.isLoggedIn ?*/}
+                {/*        <a className="view-order-topbar"  >*/}
+                {/*            <Icon type="View my Orders"/>{' '}View my Orders*/}
+                {/*        </a> : null*/}
+                {/*}*/}
 
                 {
                     this.props.isLoggedIn ?
