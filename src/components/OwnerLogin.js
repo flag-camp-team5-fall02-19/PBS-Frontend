@@ -73,7 +73,7 @@ class NormalLoginForm extends Component {
                     <Button type="primary" htmlType="submit" className="owner-login-form-button">
                         Log in
                     </Button>
-                    Or <Link to="/register">register now!</Link>
+                    Or <Link to="/ownerregister">register as an owner now !</Link>
                 </Form.Item>
             </Form>
         );

@@ -74,7 +74,7 @@ class NormalLoginForm extends Component {
                     <Button type="primary" htmlType="submit" className="sitter-login-form-button">
                         Log in
                     </Button>
-                    Or <Link to="/register">register now!</Link>
+                    Or <Link to="/sitterregister">register to become a sitter now!</Link>
                 </Form.Item>
             </Form>
         );

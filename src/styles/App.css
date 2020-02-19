@@ -4,6 +4,8 @@
 @import './Main.css';
 @import './OwnerLogin.css';
 @import './SitterLogin.css';
+@import './OwnerRegister.css';
+@import './SitterRegister.css';
 @import './OwnerDashBoard.css';
 @import './SitterDashBoard.css';
 @import './SearchSitter.css';

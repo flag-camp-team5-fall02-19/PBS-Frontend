@@ -6,7 +6,8 @@ import OwnerDashBoard from "./OwnerDashBoard";
 import { SitterLogin } from './SitterLogin'
 import SitterDashBoard from "./SitterDashBoard";
 import { SearchSitter } from "./SearchSitter";
-import TopBar from "./TopBar";
+import { OwnerRegister } from "./OwnerRegister";
+import { SitterRegister } from "./SitterRegister";
 
 class Main extends Component {
 
@@ -130,7 +131,8 @@ class Main extends Component {
         return (
             <div className="main">
                 <Switch>
-                    <Route path="/register" />
+                    <Route path="/ownerregister" component={OwnerRegister}/>
+                    <Route path="/sitterregister" component={SitterRegister}/>
                     <Route path="/ownerlogin" render={this.getOwnerLogin }/>
                     <Route path="/ownerdashboard" render={this.getOwnerDashBoard }/>
                     <Route path="/sitterlogin" render={this.getSitterLogin }/>

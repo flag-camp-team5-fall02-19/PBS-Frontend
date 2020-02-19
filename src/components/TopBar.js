@@ -23,23 +23,17 @@ class TopBar extends Component {
                 }
 
                 {
-
+                    this.props.isLoggedIn ?
                         <a className="view-request-topbar"  >
                             <Icon type="View my Requests"/>{' '}View my Requests
-                        </a>
+                        </a> : null
                 }
 
                 {
-
+                    this.props.isLoggedIn ?
                         <a className="view-order-topbar"  >
                             <Icon type="View my Orders"/>{' '}View my Orders
-                        </a>
-                }
-
-                {
-                        <a className="login-owner-topbar" onClick={this.props.handleOwnerLogin} >
-                            <Icon type="Sign In as Owner"/>{' '}Sign In as Owner
-                        </a>
+                        </a> : null
                 }
 
                 {
@@ -47,6 +41,13 @@ class TopBar extends Component {
                         <a className="logout" onClick={this.props.handleLogout} >
                             <Icon type="logout"/>{' '}Logout
                         </a> : null
+                }
+
+
+                {
+                    <a className="login-owner-topbar" onClick={this.props.handleOwnerLogin} >
+                        <Icon type="Sign In / Register as Owner"/>{' '}Sign In / Register as Owner
+                    </a>
                 }
 
             </header>

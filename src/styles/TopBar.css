@@ -23,9 +23,9 @@
 }
 
 .login-owner-topbar {
-    float: left;
+    float: right;
     padding-top: 13px;
-    padding-left: 243px;
+    padding-right: 13px;
 }
 
 .logout {
