@@ -15,8 +15,8 @@ class NormalLoginForm extends Component {
                     method: 'POST',
                     body: JSON.stringify({
                         user_id: values.username,
-                        //password: md5(values.username + md5(values.password)),
-                        password: values.password
+                        password: md5(values.username + md5(values.password)),
+                        //password: values.password
                     }),
                 })
                     .then((response) => {

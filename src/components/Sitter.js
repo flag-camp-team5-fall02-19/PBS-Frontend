@@ -10,7 +10,7 @@ class Sitter extends Component {
         return (
             <div className="sitter">
                 <li>
-                    <img className="sitter-thumbnail" src={this.props.sitter.thumbnail} />
+                    <img className="sitter-thumbnail" src={this.props.sitter.thumbnail} alt={"https://steemitimages.com/DQmZznBejPFPFvjSCY8hif5fyqTipAFHYqJxdasm1mjmkXJ/PetSitternearAustinTX.jpg"}/>
                     <ul> {`Name: ${this.props.sitter.sitterName}`} </ul>
                     <ul> {`Email: ${this.props.sitter.sitterEmail}`} </ul>
                     <ul> {`Tel: ${this.props.sitter.sitterTel}`} </ul>
