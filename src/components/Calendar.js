@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {DatePicker, Button, message} from 'antd';
-import {API_ROOT} from '../constants';
+import {API_ROOT, TOKEN_KEY, USERID} from '../constants';
 import moment from 'moment';
 
 const {RangePicker} = DatePicker;
@@ -12,7 +12,7 @@ class Calendar extends Component {
     constructor() {
         super();
         this.state = {
-            sitterID: '5555',
+            sitterID: localStorage.getItem(USERID),
             startDate: null,
             endDate: null,
             currentUnavailableTime: []
@@ -78,6 +78,7 @@ class Calendar extends Component {
     }
 
     render() {
+        console.log(localStorage.getItem(USERID));
         let button;
         if (this.checkSelectedTime()) {
             button = <Button type="primary" onClick={this.submitUnavailableTime}>Submit</Button>
