@@ -6,3 +6,15 @@
 .owner-login-form-button{
     width:300px;
 }
+
+.login-logo {
+    max-height: 440px;
+    overflow: hidden;
+    position: relative;
+    bottom: 10px;
+    width: 200%;
+    color: white;
+    padding: 2px;
+    margin: 0 auto;
+    font-size: 90%;
+}

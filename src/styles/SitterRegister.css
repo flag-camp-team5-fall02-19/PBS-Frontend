@@ -2,3 +2,15 @@
     width:500px;
     margin:0 auto;
 }
+
+.register-logo {
+    max-height: 340px;
+    overflow: hidden;
+    position: relative;
+    bottom: 10px;
+    width: 150%;
+    color: white;
+    padding: 2px;
+    margin: 0 auto;
+    font-size: 90%;
+}

@@ -91,6 +91,7 @@ class RegistrationForm extends Component {
 
         return (
             <Form {...formItemLayout} onSubmit={this.handleSubmit} className="register">
+                <img className="register-logo" src="https://www.makemoneyinlife.com/wp-content/uploads/2017/08/Pet-Sitter.png"/>
                 <Form.Item
                     label="Username"
                 >

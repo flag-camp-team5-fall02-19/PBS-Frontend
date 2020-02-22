@@ -43,7 +43,9 @@ class NormalLoginForm extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
+
             <Form onSubmit={this.handleSubmit} className="owner-login-form">
+                <img className="login-logo" src="https://www.copeanimalclinic.com/images/pet_boarding.jpg" />
                 <a>
                     Login as pet owner here.
                 </a>

@@ -91,6 +91,7 @@ class RegistrationForm extends Component {
 
         return (
             <Form {...formItemLayout} onSubmit={this.handleSubmit} className="register">
+                <img className="register-logo" src="https://www.copeanimalclinic.com/images/pet_boarding.jpg" />
                 <Form.Item
                     label="Username"
                 >
