@@ -3,6 +3,7 @@ import {API_ROOT, TOKEN_KEY, USERID} from "../constants";
 import Order from "./Order";
 import Request from "./Request";
 import {Tabs} from "antd";
+import Calendar from "./Calendar";
 
 const { TabPane } = Tabs;
 
@@ -127,6 +128,9 @@ class SitterDashBoard extends Component {
                                 <Request key={request.requestId} request={request}/>)}
                         </TabPane>
                     </Tabs>
+                    <br/>
+                    <Calendar/>
+                    <br/>
                 </div>
             </div>
         );
