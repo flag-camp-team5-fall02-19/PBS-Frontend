@@ -5,7 +5,7 @@ import TopBar from './TopBar';
 import BottomNavBar from './BottomNavBar';
 import Main from './Main'
 
-import { TOKEN_KEY, SITTER, OWNER } from "../constants";
+import { TOKEN_KEY, USERID, SITTER, OWNER } from "../constants";
 
 import '../styles/App.css';
 import SitterDashBoard from "./SitterDashBoard";
@@ -24,7 +24,9 @@ class App extends Component{
 
   handleLoginSucceed = (token) => {
     console.log('token --- ', token);
+    let data = JSON.parse(token);
     localStorage.setItem(TOKEN_KEY, token);
+    localStorage.setItem(USERID, data.user_id);
     this.setState({ isLoggedIn: true});
     if (this.state.sitterLoginRequest) {
         localStorage.setItem(SITTER, token);

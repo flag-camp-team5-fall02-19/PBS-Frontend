@@ -1,4 +1,5 @@
 export const TOKEN_KEY = 'TOKEN_KEY';
+export const USERID = 'USERID';
 export const SITTER = 'SITTER';
 export const OWNER = 'OWNER';
 export const SEARCH_BY_CITYNAME = 'SEARCH_BY_CITYNAME';

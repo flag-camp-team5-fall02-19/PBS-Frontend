@@ -38,11 +38,18 @@ class RegistrationForm extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                fetch(`${API_ROOT}/sitterregister`, {
+                fetch(`${API_ROOT}/registerSitter`, {
                     method: 'POST',
                     body: JSON.stringify({
-                        user_id: values.username,
+                        sitter_id: values.username,
                         password: md5(values.username + md5(values.password)),
+                        firstname: values.firstname,
+                        lastname: values.lastname,
+                        phone: values.phone,
+                        email: values.email,
+                        zipcode: values.zipcode,
+                        city: values.city,
+                        address: values.address,
                     }),
                 })
                     .then((response) => {
@@ -53,7 +60,12 @@ class RegistrationForm extends Component {
                     })
                     .then((data) => {
                         console.log('===== ',data);
-                        message.success('Registration succeed!');
+                        let dataStatus = '{"status":"OK"}'
+                        if(data === dataStatus){
+                            message.success("Registration succeed.");
+                        }else{
+                            message.success("User already exist.");
+                        }
                     })
                     .catch((err) => {
                         console.error(err);
@@ -91,7 +103,6 @@ class RegistrationForm extends Component {
 
         return (
             <Form {...formItemLayout} onSubmit={this.handleSubmit} className="register">
-                <img className="register-logo" src="https://www.makemoneyinlife.com/wp-content/uploads/2017/08/Pet-Sitter.png"/>
                 <Form.Item
                     label="Username"
                 >
@@ -125,6 +136,59 @@ class RegistrationForm extends Component {
                         ],
                     })(<Input.Password onBlur={this.handleConfirmBlur} />)}
                 </Form.Item>
+                <Form.Item
+                    label="First name"
+                >
+                    {getFieldDecorator('firstname', {
+                        rules: [{ required: true, message: 'Please input your first name!' }],
+                    })(<Input />)}
+                </Form.Item>
+
+                <Form.Item
+                    label="Last name"
+                >
+                    {getFieldDecorator('lastname', {
+                        rules: [{ required: true, message: 'Please input your last name!' }],
+                    })(<Input />)}
+                </Form.Item>
+
+                <Form.Item
+                    label="Phone"
+                >
+                    {getFieldDecorator('phone', {
+                        rules: [{ required: true, message: 'Please input your phone number!' }],
+                    })(<Input />)}
+                </Form.Item>
+
+                <Form.Item
+                    label="Email"
+                >
+                    {getFieldDecorator('email', {
+                        rules: [{ required: true, message: 'Please input your email address!' }],
+                    })(<Input />)}
+                </Form.Item>
+                <Form.Item
+                    label="Zipcode"
+                >
+                    {getFieldDecorator('zipcode', {
+                        rules: [{ required: true, message: 'Please input your zipcode!' }],
+                    })(<Input />)}
+                </Form.Item>
+                <Form.Item
+                    label="City"
+                >
+                    {getFieldDecorator('city', {
+                        rules: [{ required: true, message: 'Please input your city!' }],
+                    })(<Input />)}
+                </Form.Item>
+                <Form.Item
+                    label="Address"
+                >
+                    {getFieldDecorator('address', {
+                        rules: [{ required: true, message: 'Please input your address!' }],
+                    })(<Input />)}
+                </Form.Item>
+
                 <Form.Item {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">
                         Register
