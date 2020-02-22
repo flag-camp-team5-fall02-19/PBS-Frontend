@@ -10,7 +10,7 @@ class Order extends Component {
         return (
             <div className="order">
                 <li className="list">
-                    <ul> {`Name: ${this.props.order.Name}`} </ul>
+                    <ul> {`Name: ${this.props.order.name}`} </ul>
                     <ul> {`Order Status: ${this.props.order.orderStatus}`} </ul>
                 </li>
             </div>

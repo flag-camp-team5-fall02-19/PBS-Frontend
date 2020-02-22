@@ -50,7 +50,7 @@ class OwnerDashBoard extends Component {
                 .map((order) => {
                     return {
                         orderId: order.order_id,
-                        Name: order.sitter_firstName + " " + order.sitter_lastName,
+                        name: order.sitter_firstName + " " + order.sitter_lastName,
                         orderStatus: order.order_status,
                     };
                 });

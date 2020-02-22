@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {API_ROOT, TOKEN_KEY, USERID} from "../constants";
 import Order from "./Order";
+import Request from "./Request";
 import {Tabs} from "antd";
 
 const { TabPane } = Tabs;
@@ -10,11 +11,13 @@ class SitterDashBoard extends Component {
         error: '',
         orders: [],
         myRenderedOrders: [],
+        requests: [],
+        myRenderedRequests: [],
     };
 
     componentWillMount() {
         this.loadSitterOrders();
-        console.log(this.state.myRenderedOrders);
+        this.loadSitterRequests();
     }
 
     loadSitterOrders = () => {
@@ -50,7 +53,7 @@ class SitterDashBoard extends Component {
                 .map((order) => {
                     return {
                         orderId: order.order_id,
-                        Name: order.owner_firstName + " " + order.owner_lastName,
+                        name: order.owner_firstName + " " + order.owner_lastName,
                         orderStatus: order.order_status,
                     };
                 });
@@ -58,6 +61,51 @@ class SitterDashBoard extends Component {
             console.log(this.state.myRenderedOrders);
         } else {
             return 'No satisfied order';
+        }
+    }
+
+    loadSitterRequests = () => {
+        const token = localStorage.getItem(TOKEN_KEY);
+        this.setState({error: ''});
+        return fetch(`${API_ROOT}/viewowner`, {
+            method: 'POST',
+            body: JSON.stringify({
+                user_id: localStorage.getItem(USERID),
+            }),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Failed to load order.');
+            })
+            .then((data) => {
+                console.log(data);
+                this.setState({requests: data ? JSON.parse(data) : []});
+                this.renderRequests();
+            })
+            .catch((e) => {
+                console.error(e);
+                this.setState({error: e.message});
+            });
+    };
+
+    renderRequests() {
+        const { requests } = this.state;
+        if (requests.length > 0) {
+            const renderedRequests = requests
+                .map((request) => {
+                    return {
+                        requestId: request.requests[0].request_id,
+                        name: request.first_name + " " + request.last_name,
+                        message: request.requests[0].message,
+                        time: request.requests[0].time,
+                    };
+                });
+            this.setState({ myRenderedRequests: renderedRequests});
+            console.log(this.state.myRenderedRequests);
+        } else {
+            return 'No satisfied request';
         }
     }
 
@@ -73,6 +121,10 @@ class SitterDashBoard extends Component {
                         <TabPane tab="My Orders" key="1">
                             {this.state.myRenderedOrders.map(order =>
                                 <Order key={order.orderId} order={order}/>)}
+                        </TabPane>
+                        <TabPane tab="My Requests" key="2">
+                            {this.state.myRenderedRequests.map(request =>
+                                <Request key={request.requestId} request={request}/>)}
                         </TabPane>
                     </Tabs>
                 </div>

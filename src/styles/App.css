@@ -10,6 +10,8 @@
 @import './SitterDashBoard.css';
 @import './SearchSitter.css';
 @import './Sitter.css';
+@import './Order.css';
+@import './Request.css';
 
 .App {
   text-align: center;
